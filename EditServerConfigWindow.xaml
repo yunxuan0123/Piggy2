@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<MetroWindow x:Class="Aries.EditServerConfigWindow" Title="編輯主程式位置訊息" Height="146.359" Width="480" ResizeMode="NoResize" Icon="BlueSnail.ico" WindowStartupLocation="CenterOwner" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls" xmlns:Model="clr-namespace:Aries.Model">
+  <Grid Margin="0,0,0,99">
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="47*" />
+      <ColumnDefinition Width="162*" />
+      <ColumnDefinition Width="265*" />
+    </Grid.ColumnDefinitions>
+    <StackPanel VerticalAlignment="Top" Grid.ColumnSpan="3" Height="151" Margin="0,0,0,-133">
+      <StackPanel Style="{StaticResource RowStyle}">
+        <Label Style="{StaticResource LabelStyle}" Content="配置名稱" />
+        <TextBox Style="{StaticResource ControlTextBoxLgStyle}" Text="{Binding ServerName}" />
+      </StackPanel>
+      <StackPanel Style="{StaticResource RowStyle}">
+        <Label Style="{StaticResource LabelStyle}" Content="程式路徑" />
+        <TextBox Name="txtExeLocation" Style="{StaticResource ControlTextBoxLgStyle}" Width="249" Text="{Binding ExeLocation}" />
+        <Button Name="btnSelect" Style="{StaticResource ButtonStyle}" Content="選擇" Click="btnSelect_Click" />
+      </StackPanel>
+      <StackPanel Style="{StaticResource RowStyle}" HorizontalAlignment="Center">
+        <Button Name="btnSave" Content="保存" Style="{StaticResource ButtonStyle}" Click="btnSave_Click" />
+        <Button Name="btnCancel" Content="取消" Style="{StaticResource ButtonStyle}" Click="btnCancel_Click" />
+      </StackPanel>
+    </StackPanel>
+  </Grid>
+</MetroWindow>

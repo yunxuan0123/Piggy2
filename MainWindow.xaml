@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<MetroWindow x:Class="Aries.MainWindow" Title="小喵谷登入器" Width="480" Icon="BlueSnail.ico" ResizeMode="NoResize" SizeToContent="Height" WindowStartupLocation="CenterScreen" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:localConverters="clr-namespace:Aries.Converters" Closed="MetroWindow_Closed" Closing="MetroWindow_Closing">
+  <MetroWindow.Resources>
+    <localConverters:NullToFalseConverter x:Key="NullToFalseConverter" />
+  </MetroWindow.Resources>
+  <MetroWindow.RightWindowCommands>
+    <WindowCommands>
+      <Button Name="btnAbout" Click="btnAbout_Click">
+        <StackPanel Orientation="Horizontal">
+          <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="關於" />
+        </StackPanel>
+      </Button>
+    </WindowCommands>
+  </MetroWindow.RightWindowCommands>
+  <Grid>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="463*" />
+      <ColumnDefinition Width="11*" />
+    </Grid.ColumnDefinitions>
+    <StackPanel Grid.ColumnSpan="2">
+      <StackPanel Style="{StaticResource RowStyle}">
+        <Label Style="{StaticResource SubLabelStyle}" Content="選擇配置" />
+        <ComboBox Name="cbServerConfig" Style="{StaticResource ComboBoxStyle}" DisplayMemberPath="ServerName" SelectedValuePath="ID" ItemsSource="{Binding}" SelectionChanged="cbServerConfig_SelectionChanged" />
+        <Button Name="btnNew" Content="新增" Style="{StaticResource ButtonStyle}" FontSize="12" Click="btnNew_Click" />
+        <Button Name="btnEdit" Content="編輯" Style="{StaticResource ButtonStyle}" FontSize="12" Click="btnEdit_Click" />
+        <Button Name="btnRemove" Content="刪除" Style="{StaticResource ButtonStyle}" FontSize="12" Click="btnRemove_Click" />
+      </StackPanel>
+      <StackPanel Style="{StaticResource RowStyle}">
+        <Label Style="{StaticResource SubLabelStyle}" Content="主程式位置" />
+        <Label Style="{StaticResource ValLgLabelStyle}">
+          <TextBlock Width="360" TextWrapping="WrapWithOverflow" Text="{Binding ElementName=cbServerConfig, Path=SelectedItem.ExeLocation}" />
+        </Label>
+      </StackPanel>
+      <StackPanel Style="{StaticResource RowStyle}">
+        <Label Style="{StaticResource SubLabelStyle}" Content="遊戲帳號" />
+        <TextBox Name="Text_account" TextWrapping="WrapWithOverflow" Width="379" />
+      </StackPanel>
+      <StackPanel Style="{StaticResource RowStyle}" HorizontalAlignment="Center">
+        <Button Name="btnStart" Content="啟動" Style="{StaticResource ButtonLgStyle}" IsEnabled="{Binding SelectedItem, ElementName=cbServerConfig, Converter={StaticResource NullToFalseConverter}}" Click="btnStart_Click" />
+        <Button Name="btnStop" Content="停止" Style="{StaticResource ButtonLgStyle}" IsEnabled="False" Click="btnStop_Click" />
+        <StackPanel>
+          <CheckBox Name="checkQuickPass" Content="快速啟動" Margin="5" Height="45" Width="108" Checked="checkQuickPass_Checked" Unchecked="checkQuickPass_Unchecked">
+            <CheckBox.ToolTip>
+              <StackPanel>
+                <Label Content="快速啟動可跳過Play頁面，若出現無法開啟遊戲情況，請禁用此項！" />
+              </StackPanel>
+            </CheckBox.ToolTip>
+          </CheckBox>
+        </StackPanel>
+      </StackPanel>
+      <TextBox Name="tbLogs" TextWrapping="Wrap" Margin="5" Height="100" Text="{Binding DataContext, RelativeSource={RelativeSource Self}}" />
+    </StackPanel>
+  </Grid>
+</MetroWindow>

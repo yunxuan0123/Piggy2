@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application x:Class="Aries.App" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <Application.Resources>
+    <ResourceDictionary>
+      <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/小喵谷登入器;component/Styles/Controls.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/小喵谷登入器;component/Styles/Fonts.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/小喵谷登入器;component/Styles/Colors.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/小喵谷登入器;component/Styles/Accents/Blue.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/小喵谷登入器;component/Styles/Accents/BaseLight.xaml" />
+        <ResourceDictionary Source="Styles\MainStyle.xaml" />
+      </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
+  </Application.Resources>
+</Application>

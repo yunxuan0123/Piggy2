@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:Controls="clr-namespace:MahApps.Metro.Controls">
+  <Style x:Key="CleanWindowStyleKey" TargetType="{x:Type Controls:MetroWindow}">
+    <Setter Property="Controls:MetroWindow.TitleAlignment" Value="Center" />
+    <Setter Property="Controls:MetroWindow.TitleForeground" Value="{DynamicResource BlackBrush}" />
+    <Setter Property="Controls:MetroWindow.OverrideDefaultWindowCommandsBrush" Value="{DynamicResource BlackBrush}" />
+    <Setter Property="Controls:MetroWindow.WindowTitleBrush" Value="{DynamicResource TransparentWhiteBrush}" />
+    <Setter Property="Controls:MetroWindow.NonActiveWindowTitleBrush" Value="{DynamicResource TransparentWhiteBrush}" />
+  </Style>
+</ResourceDictionary>

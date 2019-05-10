@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:Controls="clr-namespace:MahApps.Metro.Controls">
+  <Style x:Key="{x:Type Controls:MetroTabControl}" TargetType="{x:Type Controls:MetroTabControl}">
+    <Setter Property="Control.Background" Value="{x:Null}" />
+    <Setter Property="Control.Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="{x:Type Controls:MetroTabControl}">
+          <Grid>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Name="ColumnDefinition0" />
+              <ColumnDefinition Name="ColumnDefinition1" Width="0" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+              <RowDefinition Name="RowDefinition0" Height="Auto" />
+              <RowDefinition Name="RowDefinition1" Height="*" />
+            </Grid.RowDefinitions>
+            <TabPanel Name="HeaderPanel" Margin="{TemplateBinding Controls:BaseMetroTabControl.TabStripMargin}" Grid.Column="0" IsItemsHost="True" Grid.Row="0" KeyboardNavigation.TabIndex="1" ZIndex="1" />
+            <Border Name="ContentPanel" BorderBrush="{TemplateBinding Control.BorderBrush}" BorderThickness="{TemplateBinding Control.BorderThickness}" Background="{TemplateBinding Control.Background}" Grid.Column="0" KeyboardNavigation.DirectionalNavigation="Contained" Grid.Row="1" KeyboardNavigation.TabIndex="2" KeyboardNavigation.TabNavigation="Local">
+              <ContentPresenter Name="PART_SelectedContentHost" ContentSource="SelectedContent" Margin="{TemplateBinding Control.Padding}" SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}" />
+            </Border>
+          </Grid>
+          <ControlTemplate.Triggers>
+            <Trigger Property="TabControl.TabStripPlacement" Value="Bottom">
+              <Setter TargetName="HeaderPanel" Property="Grid.Row" Value="1" />
+              <Setter TargetName="ContentPanel" Property="Grid.Row" Value="0" />
+              <Setter TargetName="RowDefinition0" Property="RowDefinition.Height" Value="*" />
+              <Setter TargetName="RowDefinition1" Property="RowDefinition.Height" Value="Auto" />
+            </Trigger>
+            <Trigger Property="TabControl.TabStripPlacement" Value="Left">
+              <Setter TargetName="HeaderPanel" Property="Grid.Row" Value="0" />
+              <Setter TargetName="ContentPanel" Property="Grid.Row" Value="0" />
+              <Setter TargetName="HeaderPanel" Property="Grid.Column" Value="0" />
+              <Setter TargetName="ContentPanel" Property="Grid.Column" Value="1" />
+              <Setter TargetName="ColumnDefinition0" Property="ColumnDefinition.Width" Value="Auto" />
+              <Setter TargetName="ColumnDefinition1" Property="ColumnDefinition.Width" Value="*" />
+              <Setter TargetName="RowDefinition0" Property="RowDefinition.Height" Value="*" />
+              <Setter TargetName="RowDefinition1" Property="RowDefinition.Height" Value="0" />
+            </Trigger>
+            <Trigger Property="TabControl.TabStripPlacement" Value="Right">
+              <Setter TargetName="HeaderPanel" Property="Grid.Row" Value="0" />
+              <Setter TargetName="ContentPanel" Property="Grid.Row" Value="0" />
+              <Setter TargetName="HeaderPanel" Property="Grid.Column" Value="1" />
+              <Setter TargetName="ContentPanel" Property="Grid.Column" Value="0" />
+              <Setter TargetName="ColumnDefinition0" Property="ColumnDefinition.Width" Value="*" />
+              <Setter TargetName="ColumnDefinition1" Property="ColumnDefinition.Width" Value="Auto" />
+              <Setter TargetName="RowDefinition0" Property="RowDefinition.Height" Value="*" />
+              <Setter TargetName="RowDefinition1" Property="RowDefinition.Height" Value="0" />
+            </Trigger>
+          </ControlTemplate.Triggers>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+</ResourceDictionary>

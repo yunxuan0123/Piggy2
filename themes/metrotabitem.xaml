@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:Controls="clr-namespace:MahApps.Metro.Controls" xmlns:Converters="clr-namespace:MahApps.Metro.Converters">
+  <ResourceDictionary.MergedDictionaries>
+    <ResourceDictionary Source="pack://application:,,,/小喵谷登入器;component/Styles/Controls.TabControl.xaml" />
+  </ResourceDictionary.MergedDictionaries>
+  <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+  <Converters:MetroTabItemCloseButtonWidthConverter x:Key="MetroTabItemCloseButtonWidthConverter" />
+  <Style x:Key="{x:Type Controls:MetroTabItem}" TargetType="{x:Type Controls:MetroTabItem}" BasedOn="{StaticResource MetroTabItem}">
+    <Setter Property="Control.Padding" Value="2,1,2,1" />
+    <Setter Property="Control.Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="{x:Type Controls:MetroTabItem}">
+          <Border Name="Border" HorizontalAlignment="Stretch" BorderThickness="{TemplateBinding Control.BorderThickness}" BorderBrush="{TemplateBinding Control.BorderBrush}" Background="{TemplateBinding Control.Background}" SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch">
+              <StackPanel Orientation="Horizontal" Margin="{TemplateBinding Control.Padding}">
+                <Controls:ContentControlEx x:Name="ContentSite" Margin="0 2 2 0" Content="{TemplateBinding HeaderedContentControl.Header}" ContentStringFormat="{TemplateBinding HeaderedContentControl.HeaderStringFormat}" ContentTemplate="{TemplateBinding HeaderedContentControl.HeaderTemplate}" ContentTemplateSelector="{TemplateBinding HeaderedContentControl.HeaderTemplateSelector}" FontSize="{TemplateBinding Controls:ControlsHelper.HeaderFontSize}" FontStretch="{TemplateBinding Controls:ControlsHelper.HeaderFontStretch}" FontWeight="{TemplateBinding Controls:ControlsHelper.HeaderFontWeight}" Foreground="{TemplateBinding Control.Foreground}" SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}" Padding="{TemplateBinding Control.Padding}" RecognizesAccessKey="True" ContentCharacterCasing="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(Controls:ControlsHelper.ContentCharacterCasing)}" />
+                <Button Name="PART_CloseButton" Visibility="Collapsed" Style="{DynamicResource ChromelessButtonStyle}" Background="{DynamicResource GrayNormalBrush}" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0 0 2 0" IsTabStop="False" Command="{TemplateBinding Controls:MetroTabItem.CloseTabCommand}" CommandParameter="{TemplateBinding Controls:MetroTabItem.CloseTabCommandParameter}" Width="{TemplateBinding Controls:ControlsHelper.HeaderFontSize, Converter={StaticResource MetroTabItemCloseButtonWidthConverter}}" Height="{Binding RelativeSource={RelativeSource Self}, Path=Width, Mode=OneWay}">
+                  <Button.Resources>
+                    <Canvas x:Key="tabitem_close" Width="76" Height="76" Clip="F1M0,0L76,0 76,76 0,76 0,0">
+                      <Path Width="31.6666" Height="31.6667" Canvas.Left="22.1666" Canvas.Top="22.1667" Stretch="Fill" Fill="{DynamicResource BlackBrush}" Data="F1M26.9166,22.1667L37.9999,33.25 49.0832,22.1668 53.8332,26.9168 42.7499,38 53.8332,49.0834 49.0833,53.8334 37.9999,42.75 26.9166,53.8334 22.1666,49.0833 33.25,38 22.1667,26.9167 26.9166,22.1667z" />
+                    </Canvas>
+                  </Button.Resources>
+                  <Button.OpacityMask>
+                    <VisualBrush Stretch="Uniform" Visual="{StaticResource tabitem_close}" />
+                  </Button.OpacityMask>
+                </Button>
+              </StackPanel>
+              <Rectangle Name="Underline" Margin="0, 1, 0, 0" Height="2" HorizontalAlignment="Stretch" Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type TabControl}}, Path=(Controls:TabControlHelper.IsUnderlined), Converter={StaticResource BooleanToVisibilityConverter}}" />
+            </StackPanel>
+          </Border>
+          <ControlTemplate.Triggers>
+            <Trigger Property="Controls:MetroTabItem.CloseButtonEnabled" Value="True">
+              <Setter TargetName="PART_CloseButton" Property="UIElement.Visibility" Value="Hidden" />
+            </Trigger>
+            <MultiTrigger>
+              <MultiTrigger.Conditions>
+                <Condition Property="TabItem.IsSelected" Value="True" />
+                <Condition Property="Controls:MetroTabItem.CloseButtonEnabled" Value="True" />
+              </MultiTrigger.Conditions>
+              <Setter TargetName="PART_CloseButton" Property="UIElement.Visibility" Value="Visible" />
+            </MultiTrigger>
+            <MultiTrigger>
+              <MultiTrigger.Conditions>
+                <Condition Property="UIElement.IsMouseOver" Value="True" />
+                <Condition Property="Controls:MetroTabItem.CloseButtonEnabled" Value="True" />
+              </MultiTrigger.Conditions>
+              <Setter TargetName="PART_CloseButton" Property="UIElement.Visibility" Value="Visible" />
+            </MultiTrigger>
+            <Trigger Property="TabItem.IsSelected" Value="True">
+              <Setter TargetName="ContentSite" Value="{DynamicResource AccentColorBrush}" Property="TextElement.Foreground" />
+              <Setter TargetName="Underline" Value="{DynamicResource AccentColorBrush}" Property="Shape.Fill" />
+            </Trigger>
+            <Trigger Property="TabItem.IsSelected" Value="False">
+              <Setter TargetName="ContentSite" Value="{DynamicResource GrayNormalBrush}" Property="TextElement.Foreground" />
+              <Setter TargetName="Underline" Value="{DynamicResource GrayNormalBrush}" Property="Shape.Fill" />
+            </Trigger>
+            <Trigger SourceName="ContentSite" Property="UIElement.IsMouseOver" Value="True">
+              <Setter TargetName="ContentSite" Value="{DynamicResource GrayHoverBrush}" Property="TextElement.Foreground" />
+              <Setter TargetName="Underline" Value="{DynamicResource GrayHoverBrush}" Property="Shape.Fill" />
+              <Setter TargetName="PART_CloseButton" Value="{DynamicResource GrayHoverBrush}" Property="Control.Background" />
+            </Trigger>
+            <Trigger SourceName="PART_CloseButton" Property="UIElement.IsMouseOver" Value="True">
+              <Setter TargetName="PART_CloseButton" Value="{DynamicResource AccentColorBrush}" Property="Control.Background" />
+            </Trigger>
+            <MultiTrigger>
+              <MultiTrigger.Conditions>
+                <Condition SourceName="ContentSite" Property="UIElement.IsMouseOver" Value="True" />
+                <Condition Property="TabItem.IsSelected" Value="True" />
+              </MultiTrigger.Conditions>
+              <Setter TargetName="ContentSite" Value="{DynamicResource HighlightBrush}" Property="TextElement.Foreground" />
+              <Setter TargetName="Underline" Value="{DynamicResource HighlightBrush}" Property="Shape.Fill" />
+            </MultiTrigger>
+          </ControlTemplate.Triggers>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+</ResourceDictionary>

@@ -1,0 +1,24 @@
+using System;
+
+namespace Standard
+{
+	[Flags]
+	internal enum SWP
+	{
+		NOSIZE = 1,
+		NOMOVE = 2,
+		NOZORDER = 4,
+		NOREDRAW = 8,
+		NOACTIVATE = 16,
+		DRAWFRAME = 32,
+		FRAMECHANGED = 32,
+		SHOWWINDOW = 64,
+		HIDEWINDOW = 128,
+		NOCOPYBITS = 256,
+		NOOWNERZORDER = 512,
+		NOREPOSITION = 512,
+		NOSENDCHANGING = 1024,
+		DEFERERASE = 8192,
+		ASYNCWINDOWPOS = 16384
+	}
+}

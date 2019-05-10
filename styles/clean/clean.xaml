@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:Controls="clr-namespace:MahApps.Metro.Controls">
+  <ResourceDictionary.MergedDictionaries>
+    <ResourceDictionary Source="pack://application:,,,/小喵谷登入器;component/Styles/Clean/CleanGroupBox.xaml" />
+    <ResourceDictionary Source="pack://application:,,,/小喵谷登入器;component/Styles/Clean/CleanWindow.xaml" />
+    <ResourceDictionary Source="pack://application:,,,/小喵谷登入器;component/Styles/Clean/CleanWindowButtonCommands.xaml" />
+    <ResourceDictionary Source="pack://application:,,,/小喵谷登入器;component/Styles/Clean/CleanWindowCommands.xaml" />
+    <ResourceDictionary Source="pack://application:,,,/小喵谷登入器;component/Styles/Clean/CleanStatusBar.xaml" />
+  </ResourceDictionary.MergedDictionaries>
+  <Style x:Key="{x:Type GroupBox}" TargetType="{x:Type GroupBox}" BasedOn="{StaticResource CleanGroupBoxStyleKey}" />
+  <Style x:Key="{x:Type Controls:MetroWindow}" TargetType="{x:Type Controls:MetroWindow}" BasedOn="{StaticResource CleanWindowStyleKey}" />
+  <Style x:Key="{x:Type Controls:WindowButtonCommands}" TargetType="{x:Type Controls:WindowButtonCommands}" BasedOn="{StaticResource CleanWindowButtonCommandsStyleKey}" />
+  <Style x:Key="{x:Type Controls:WindowCommands}" TargetType="{x:Type Controls:WindowCommands}" BasedOn="{StaticResource CleanWindowCommandsStyleKey}" />
+  <Style x:Key="{x:Type StatusBar}" TargetType="{x:Type StatusBar}" BasedOn="{StaticResource CleanMetroStatusBarKey}" />
+</ResourceDictionary>

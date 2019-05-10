@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:Controls="clr-namespace:MahApps.Metro.Controls">
+  <Style x:Key="CleanGroupBoxStyleKey" TargetType="{x:Type GroupBox}">
+    <Setter Property="Control.BorderBrush" Value="{DynamicResource GrayBrush7}" />
+    <Setter Property="Control.BorderThickness" Value="0.3" />
+    <Setter Property="Controls:ControlsHelper.HeaderFontSize" Value="16" />
+    <Setter Property="Controls:GroupBoxHelper.HeaderForeground" Value="{DynamicResource TextBrush}" />
+    <Setter Property="Control.Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="{x:Type GroupBox}">
+          <Grid>
+            <Grid.RowDefinitions>
+              <RowDefinition Height="Auto" />
+              <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Controls:ContentControlEx Margin="{TemplateBinding Control.Padding}" Content="{TemplateBinding HeaderedContentControl.Header}" ContentTemplate="{TemplateBinding HeaderedContentControl.HeaderTemplate}" ContentTemplateSelector="{TemplateBinding HeaderedContentControl.HeaderTemplateSelector}" ContentStringFormat="{TemplateBinding HeaderedContentControl.HeaderStringFormat}" Foreground="{TemplateBinding Controls:GroupBoxHelper.HeaderForeground}" FontSize="{TemplateBinding Controls:ControlsHelper.HeaderFontSize}" FontStretch="{TemplateBinding Controls:ControlsHelper.HeaderFontStretch}" FontWeight="{TemplateBinding Controls:ControlsHelper.HeaderFontWeight}" SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}" RecognizesAccessKey="True" Grid.Row="0" ContentCharacterCasing="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(Controls:ControlsHelper.ContentCharacterCasing)}" />
+            <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="1">
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+              </Grid.ColumnDefinitions>
+              <Grid.Resources>
+                <Style x:Key="InternalBorderStyle" TargetType="{x:Type Border}">
+                  <Setter Property="FrameworkElement.VerticalAlignment" Value="Stretch" />
+                  <Setter Property="Panel.ZIndex" Value="1" />
+                  <Setter Property="FrameworkElement.Width" Value="Auto" />
+                </Style>
+              </Grid.Resources>
+              <Border Grid.Column="0" Style="{StaticResource InternalBorderStyle}" BorderBrush="{TemplateBinding Control.BorderBrush}" Background="{TemplateBinding Control.BorderBrush}" BorderThickness="{TemplateBinding Control.BorderThickness}" />
+              <ContentPresenter Grid.Column="1" Content="{TemplateBinding ContentControl.Content}" ContentTemplate="{TemplateBinding ContentControl.ContentTemplate}" Cursor="{TemplateBinding FrameworkElement.Cursor}" />
+              <Border Grid.Column="2" Style="{StaticResource InternalBorderStyle}" BorderBrush="{TemplateBinding Control.BorderBrush}" Background="{TemplateBinding Control.BorderBrush}" BorderThickness="{TemplateBinding Control.BorderThickness}" />
+            </Grid>
+          </Grid>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+</ResourceDictionary>

@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:Controls="clr-namespace:MahApps.Metro.Controls">
+  <ResourceDictionary.MergedDictionaries>
+    <ResourceDictionary Source="pack://application:,,,/小喵谷登入器;component/Styles/Sizes.xaml" />
+    <ResourceDictionary Source="pack://application:,,,/小喵谷登入器;component/Styles/Controls.Page.xaml" />
+    <ResourceDictionary Source="pack://application:,,,/小喵谷登入器;component/Styles/ValidationErrorTemplate.xaml" />
+    <ResourceDictionary Source="pack://application:,,,/小喵谷登入器;component/Styles/Controls.Scrollbars.xaml" />
+    <ResourceDictionary Source="pack://application:,,,/小喵谷登入器;component/Styles/Controls.ListView.xaml" />
+    <ResourceDictionary Source="pack://application:,,,/小喵谷登入器;component/Styles/Controls.Buttons.xaml" />
+    <ResourceDictionary Source="pack://application:,,,/小喵谷登入器;component/Styles/Controls.Calendar.xaml" />
+    <ResourceDictionary Source="pack://application:,,,/小喵谷登入器;component/Styles/Controls.CheckBox.xaml" />
+    <ResourceDictionary Source="pack://application:,,,/小喵谷登入器;component/Styles/Controls.ComboBox.xaml" />
+    <ResourceDictionary Source="pack://application:,,,/小喵谷登入器;component/Styles/Controls.ContextMenu.xaml" />
+    <ResourceDictionary Source="pack://application:,,,/小喵谷登入器;component/Styles/Controls.DatePicker.xaml" />
+    <ResourceDictionary Source="pack://application:,,,/小喵谷登入器;component/Styles/Controls.DataGrid.xaml" />
+    <ResourceDictionary Source="pack://application:,,,/小喵谷登入器;component/Styles/Controls.Expander.xaml" />
+    <ResourceDictionary Source="pack://application:,,,/小喵谷登入器;component/Styles/Controls.GroupBox.xaml" />
+    <ResourceDictionary Source="pack://application:,,,/小喵谷登入器;component/Styles/Controls.ListBox.xaml" />
+    <ResourceDictionary Source="pack://application:,,,/小喵谷登入器;component/Styles/Controls.PasswordBox.xaml" />
+    <ResourceDictionary Source="pack://application:,,,/小喵谷登入器;component/Styles/Controls.ProgressBar.xaml" />
+    <ResourceDictionary Source="pack://application:,,,/小喵谷登入器;component/Styles/Controls.RadioButton.xaml" />
+    <ResourceDictionary Source="pack://application:,,,/小喵谷登入器;component/Styles/Controls.Slider.xaml" />
+    <ResourceDictionary Source="pack://application:,,,/小喵谷登入器;component/Styles/Controls.TabControl.xaml" />
+    <ResourceDictionary Source="pack://application:,,,/小喵谷登入器;component/Styles/Controls.TextBlock.xaml" />
+    <ResourceDictionary Source="pack://application:,,,/小喵谷登入器;component/Styles/Controls.TextBox.xaml" />
+    <ResourceDictionary Source="pack://application:,,,/小喵谷登入器;component/Styles/Controls.Label.xaml" />
+    <ResourceDictionary Source="pack://application:,,,/小喵谷登入器;component/Styles/Controls.Tooltip.xaml" />
+    <ResourceDictionary Source="pack://application:,,,/小喵谷登入器;component/Styles/Controls.ToolBar.xaml" />
+    <ResourceDictionary Source="pack://application:,,,/小喵谷登入器;component/Styles/Controls.TreeView.xaml" />
+    <ResourceDictionary Source="pack://application:,,,/小喵谷登入器;component/Styles/Controls.StatusBar.xaml" />
+  </ResourceDictionary.MergedDictionaries>
+  <Style x:Key="FloatingMessageContainerStyle" TargetType="{x:Type ContentControl}">
+    <Setter Property="Control.IsTabStop" Value="False" />
+    <Setter Property="UIElement.Focusable" Value="False" />
+    <Setter Property="FrameworkElement.MaxHeight" Value="0" />
+    <Setter Property="UIElement.IsHitTestVisible" Value="False" />
+    <Setter Property="FrameworkElement.Margin" Value="5 0" />
+    <Setter Property="UIElement.Visibility" Value="Visible" />
+  </Style>
+  <Style x:Key="MetroToggleSwitchButton" TargetType="{x:Type Controls:ToggleSwitchButton}" BasedOn="{StaticResource {x:Type Controls:ToggleSwitchButton}}" />
+  <Style x:Key="MetroToggleSwitch" TargetType="{x:Type Controls:ToggleSwitch}" BasedOn="{StaticResource {x:Type Controls:ToggleSwitch}}" />
+  <Style x:Key="{x:Type Controls:CustomValidationPopup}" TargetType="{x:Type Controls:CustomValidationPopup}" BasedOn="{StaticResource MetroValidationPopup}" />
+  <Style x:Key="{x:Type ToolTip}" TargetType="{x:Type ToolTip}" BasedOn="{StaticResource MetroToolTip}" />
+  <Style x:Key="{x:Type Button}" TargetType="{x:Type Button}" BasedOn="{StaticResource MetroButton}" />
+  <Style x:Key="{x:Type ToggleButton}" TargetType="{x:Type ToggleButton}" BasedOn="{StaticResource MetroToggleButton}" />
+  <Style x:Key="{x:Type TextBox}" TargetType="{x:Type TextBox}" BasedOn="{StaticResource MetroTextBox}" />
+  <Style x:Key="{x:Type RichTextBox}" TargetType="{x:Type RichTextBox}" BasedOn="{StaticResource MetroRichTextBox}" />
+  <Style x:Key="{x:Type Slider}" TargetType="{x:Type Slider}" BasedOn="{StaticResource MetroSlider}" />
+  <Style x:Key="{x:Type Label}" TargetType="{x:Type Label}" BasedOn="{StaticResource MetroLabel}" />
+  <Style x:Key="{x:Type TabItem}" TargetType="{x:Type TabItem}" BasedOn="{StaticResource MetroTabItem}" />
+  <Style x:Key="{x:Type TabControl}" TargetType="{x:Type TabControl}" BasedOn="{StaticResource MetroTabControl}" />
+  <Style x:Key="{x:Type ScrollBar}" TargetType="{x:Type ScrollBar}" BasedOn="{StaticResource MetroScrollBar}" />
+  <Style x:Key="{x:Type RadioButton}" TargetType="{x:Type RadioButton}" BasedOn="{StaticResource MetroRadioButton}" />
+  <Style x:Key="{x:Type ProgressBar}" TargetType="{x:Type ProgressBar}" BasedOn="{StaticResource MetroProgressBar}" />
+  <Style x:Key="{x:Type PasswordBox}" TargetType="{x:Type PasswordBox}" BasedOn="{StaticResource MetroPasswordBox}" />
+  <Style x:Key="{x:Type CheckBox}" TargetType="{x:Type CheckBox}" BasedOn="{StaticResource MetroCheckBox}" />
+  <Style x:Key="{x:Type ComboBox}" TargetType="{x:Type ComboBox}" BasedOn="{StaticResource MetroComboBox}" />
+  <Style x:Key="{x:Type ComboBoxItem}" TargetType="{x:Type ComboBoxItem}" BasedOn="{StaticResource MetroComboBoxItem}" />
+  <Style x:Key="{x:Type MenuItem}" TargetType="{x:Type MenuItem}" BasedOn="{StaticResource MetroMenuItem}" />
+  <Style x:Key="{x:Type Menu}" TargetType="{x:Type Menu}" BasedOn="{StaticResource MetroMenu}" />
+  <Style x:Key="{x:Type ContextMenu}" TargetType="{x:Type ContextMenu}" BasedOn="{StaticResource MetroContextMenu}" />
+  <Style x:Key="{x:Type Expander}" TargetType="{x:Type Expander}" BasedOn="{StaticResource MetroExpander}" />
+  <Style x:Key="{x:Type GroupBox}" TargetType="{x:Type GroupBox}" BasedOn="{StaticResource MetroGroupBox}" />
+  <Style x:Key="{x:Type ListBox}" TargetType="{x:Type ListBox}" BasedOn="{StaticResource MetroListBox}" />
+  <Style x:Key="{x:Type ListBoxItem}" TargetType="{x:Type ListBoxItem}" BasedOn="{StaticResource MetroListBoxItem}" />
+  <Style x:Key="{x:Type GridViewColumnHeader}" TargetType="{x:Type GridViewColumnHeader}" BasedOn="{StaticResource MetroGridViewColumnHeader}" />
+  <Style x:Key="{x:Type ListView}" TargetType="{x:Type ListView}" BasedOn="{StaticResource MetroListView}" />
+  <Style x:Key="{x:Type ListViewItem}" TargetType="{x:Type ListViewItem}" BasedOn="{StaticResource MetroListViewItem}" />
+  <Style x:Key="{x:Type TreeView}" TargetType="{x:Type TreeView}" BasedOn="{StaticResource MetroTreeView}" />
+  <Style x:Key="{x:Type TreeViewItem}" TargetType="{x:Type TreeViewItem}" BasedOn="{StaticResource MetroTreeViewItem}" />
+  <Style x:Key="{x:Type DatePicker}" TargetType="{x:Type DatePicker}" BasedOn="{StaticResource MetroDatePicker}" />
+  <Style x:Key="{x:Type DatePickerTextBox}" TargetType="{x:Type DatePickerTextBox}" BasedOn="{StaticResource MetroDatePickerTextBox}" />
+  <Style x:Key="{x:Type Calendar}" TargetType="{x:Type Calendar}" BasedOn="{StaticResource MetroCalendar}" />
+  <Style x:Key="{x:Type DataGrid}" TargetType="{x:Type DataGrid}" BasedOn="{StaticResource MetroDataGrid}" />
+  <Style x:Key="{x:Type StatusBar}" TargetType="{x:Type StatusBar}" BasedOn="{StaticResource MetroStatusBar}" />
+  <Style x:Key="{x:Type StatusBarItem}" TargetType="{x:Type StatusBarItem}" BasedOn="{StaticResource MetroStatusBarItem}" />
+  <Style x:Key="{x:Type ScrollViewer}" TargetType="{x:Type ScrollViewer}" BasedOn="{StaticResource MetroScrollViewer}" />
+</ResourceDictionary>

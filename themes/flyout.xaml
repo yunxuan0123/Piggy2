@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:Controls="clr-namespace:MahApps.Metro.Controls" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" xmlns:Actions="clr-namespace:MahApps.Metro.Actions">
+  <ResourceDictionary.MergedDictionaries>
+    <ResourceDictionary Source="pack://application:,,,/小喵谷登入器;component/Styles/Colors.xaml" />
+    <ResourceDictionary Source="pack://application:,,,/小喵谷登入器;component/Styles/Fonts.xaml" />
+    <ResourceDictionary Source="pack://application:,,,/小喵谷登入器;component/Themes/Thumb.xaml" />
+  </ResourceDictionary.MergedDictionaries>
+  <DataTemplate x:Key="HeaderTemplate">
+    <DockPanel Name="dpHeader" Margin="10,25,10,10" VerticalAlignment="Center" LastChildFill="True">
+      <Button Name="nav" DockPanel.Dock="Left" Style="{DynamicResource MetroCircleButtonStyle}" Height="40" Width="40" FontFamily="Segoe UI Symbol" FontSize="16" VerticalAlignment="Bottom" Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type Controls:Flyout}}, Path=CloseCommand, Mode=OneWay}" Visibility="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Controls:Flyout}}, Path=CloseButtonVisibility}" Foreground="{Binding RelativeSource={RelativeSource AncestorType={x:Type Controls:Flyout}}, Path=Foreground}" IsCancel="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Controls:Flyout}}, Path=CloseButtonIsCancel}">
+        <Interaction.Triggers>
+          <EventTrigger EventTrigger.EventName="Click">
+            <Actions:SetFlyoutOpenAction Value="False" TargetObject="{Binding RelativeSource={RelativeSource AncestorType={x:Type Controls:Flyout}}}" />
+          </EventTrigger>
+        </Interaction.Triggers>
+        <Rectangle Width="20" Height="15" Fill="{Binding RelativeSource={RelativeSource AncestorType={x:Type Controls:Flyout}}, Path=Foreground}">
+          <Rectangle.OpacityMask>
+            <VisualBrush Stretch="Fill">
+              <VisualBrush.Visual>
+                <Canvas Width="48" Height="48" Clip="F1M0,0L48,0 48,48 0,48 0,0" UseLayoutRounding="False">
+                  <Path Width="25" Height="18" Canvas.Left="12" Canvas.Top="15" Stretch="Fill" Fill="#FF000000" Data="F1M12,22L12,26 28.25,26 21,33 27.5,33 37,24 27.5,15 21,15 28.25,22 12,22z" />
+                </Canvas>
+              </VisualBrush.Visual>
+            </VisualBrush>
+          </Rectangle.OpacityMask>
+        </Rectangle>
+      </Button>
+      <TextBlock Name="PART_BackButton" TextBlock.FontSize="{StaticResource FlyoutHeaderFontSize}" Margin="15,0,0,0" VerticalAlignment="Center" Text="{Binding}" Visibility="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Controls:Flyout}}, Path=TitleVisibility}" />
+    </DockPanel>
+    <DataTemplate.Triggers>
+      <DataTrigger Value="Left" Binding="{Binding Position, RelativeSource={RelativeSource AncestorType={x:Type Controls:Flyout}}}">
+        <Setter TargetName="nav" Property="DockPanel.Dock" Value="Right" />
+        <Setter TargetName="PART_BackButton" Property="TextBlock.TextAlignment" Value="Right" />
+        <Setter TargetName="PART_BackButton" Property="FrameworkElement.Margin" Value="0,0,15,0" />
+        <Setter TargetName="nav" Property="FrameworkElement.LayoutTransform">
+          <Setter.Value>
+            <ScaleTransform ScaleX="-1" />
+          </Setter.Value>
+        </Setter>
+      </DataTrigger>
+      <DataTrigger Value="Top" Binding="{Binding Position, RelativeSource={RelativeSource AncestorType={x:Type Controls:Flyout}}}">
+        <Setter TargetName="dpHeader" Property="FrameworkElement.Margin" Value="10" />
+        <Setter TargetName="nav" Property="FrameworkElement.LayoutTransform">
+          <Setter.Value>
+            <RotateTransform Angle="-90" />
+          </Setter.Value>
+        </Setter>
+      </DataTrigger>
+      <DataTrigger Value="Bottom" Binding="{Binding Position, RelativeSource={RelativeSource AncestorType={x:Type Controls:Flyout}}}">
+        <Setter TargetName="dpHeader" Property="FrameworkElement.Margin" Value="10" />
+        <Setter TargetName="nav" Property="FrameworkElement.LayoutTransform">
+          <Setter.Value>
+            <RotateTransform Angle="90" />
+          </Setter.Value>
+        </Setter>
+      </DataTrigger>
+    </DataTemplate.Triggers>
+  </DataTemplate>
+  <ControlTemplate x:Key="FlyoutTemplate" TargetType="{x:Type Controls:Flyout}">
+    <Grid Name="root" Margin="{TemplateBinding FrameworkElement.Margin}" Background="{TemplateBinding Control.Background}">
+      <Grid.RenderTransform>
+        <TranslateTransform />
+      </Grid.RenderTransform>
+      <VisualStateManager.VisualStateGroups>
+        <VisualStateGroup>
+          <VisualState x:Name="Default" />
+          <VisualState x:Name="Hide">
+            <Storyboard Name="HideStoryboard">
+              <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)" Storyboard.TargetName="root">
+                <SplineDoubleKeyFrame KeyTime="00:00:00.750" KeySpline="0.25,1,0.05,1" Value="0" x:Name="hideFrame" />
+              </DoubleAnimationUsingKeyFrames>
+              <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)" Storyboard.TargetName="root">
+                <SplineDoubleKeyFrame KeyTime="00:00:00.750" KeySpline="0.25,1,0.05,1" Value="0" x:Name="hideFrameY" />
+              </DoubleAnimationUsingKeyFrames>
+              <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="root">
+                <SplineDoubleKeyFrame KeyTime="00:00:00.750" KeySpline="0.25,1,0.05,1" Value="0" x:Name="fadeOutFrame" />
+              </DoubleAnimationUsingKeyFrames>
+            </Storyboard>
+          </VisualState>
+          <VisualState x:Name="Show">
+            <Storyboard>
+              <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)" Storyboard.TargetName="root">
+                <SplineDoubleKeyFrame KeyTime="00:00:00.750" KeySpline="0.25,1,0.05,1" Value="0" x:Name="showFrame" />
+              </DoubleAnimationUsingKeyFrames>
+              <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)" Storyboard.TargetName="root">
+                <SplineDoubleKeyFrame KeyTime="00:00:00.750" KeySpline="0.25,1,0.05,1" Value="0" x:Name="showFrameY" />
+              </DoubleAnimationUsingKeyFrames>
+              <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="root">
+                <SplineDoubleKeyFrame KeyTime="00:00:00.750" KeySpline="0.25,1,0.05,1" Value="1" />
+              </DoubleAnimationUsingKeyFrames>
+            </Storyboard>
+          </VisualState>
+          <VisualState x:Name="HideDirect">
+            <Storyboard>
+              <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)" Storyboard.TargetName="root">
+                <SplineDoubleKeyFrame KeyTime="0" Value="0" />
+              </DoubleAnimationUsingKeyFrames>
+              <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)" Storyboard.TargetName="root">
+                <SplineDoubleKeyFrame KeyTime="0" Value="0" />
+              </DoubleAnimationUsingKeyFrames>
+              <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="root">
+                <SplineDoubleKeyFrame KeyTime="0" Value="0" />
+              </DoubleAnimationUsingKeyFrames>
+            </Storyboard>
+          </VisualState>
+          <VisualState x:Name="ShowDirect">
+            <Storyboard>
+              <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)" Storyboard.TargetName="root">
+                <SplineDoubleKeyFrame KeyTime="0" Value="0" />
+              </DoubleAnimationUsingKeyFrames>
+              <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)" Storyboard.TargetName="root">
+                <SplineDoubleKeyFrame KeyTime="0" Value="0" />
+              </DoubleAnimationUsingKeyFrames>
+              <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="root">
+                <SplineDoubleKeyFrame KeyTime="0" Value="1" />
+              </DoubleAnimationUsingKeyFrames>
+            </Storyboard>
+          </VisualState>
+        </VisualStateGroup>
+      </VisualStateManager.VisualStateGroups>
+      <AdornerDecorator>
+        <DockPanel Focusable="False" FocusVisualStyle="{x:Null}">
+          <ContentPresenter Name="PART_Header" DockPanel.Dock="Top" ContentSource="Header" ContentTemplate="{TemplateBinding Controls:Flyout.HeaderTemplate}" />
+          <ContentPresenter Name="PART_Content" DockPanel.Dock="Bottom" />
+        </DockPanel>
+      </AdornerDecorator>
+      <Controls:MetroThumb x:Name="PART_WindowTitleThumb" Style="{StaticResource WindowTitleThumbStyle}" VerticalAlignment="Top" Height="{Binding Path=TitlebarHeight, Mode=OneWay, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Controls:MetroWindow}}}" />
+    </Grid>
+    <ControlTemplate.Triggers>
+      <DataTrigger Value="Top" Binding="{Binding Position, RelativeSource={RelativeSource Self}}">
+        <Setter TargetName="PART_Header" Property="DockPanel.Dock" Value="Left" />
+        <Setter TargetName="PART_Content" Property="DockPanel.Dock" Value="Right" />
+      </DataTrigger>
+      <DataTrigger Value="Bottom" Binding="{Binding Position, RelativeSource={RelativeSource Self}}">
+        <Setter TargetName="PART_Header" Property="DockPanel.Dock" Value="Left" />
+        <Setter TargetName="PART_Content" Property="DockPanel.Dock" Value="Right" />
+        <Setter TargetName="PART_WindowTitleThumb" Property="UIElement.Visibility" Value="Collapsed" />
+      </DataTrigger>
+    </ControlTemplate.Triggers>
+  </ControlTemplate>
+  <Style x:Key="{x:Type Controls:Flyout}" TargetType="{x:Type Controls:Flyout}">
+    <Setter Property="UIElement.Visibility" Value="Hidden" />
+    <Setter Property="KeyboardNavigation.ControlTabNavigation" Value="Cycle" />
+    <Setter Property="KeyboardNavigation.TabNavigation" Value="Cycle" />
+    <Setter Property="KeyboardNavigation.DirectionalNavigation" Value="Cycle" />
+    <Setter Property="FrameworkElement.VerticalAlignment" Value="Stretch" />
+    <Setter Property="Control.VerticalContentAlignment" Value="Stretch" />
+    <Setter Property="Controls:Flyout.HeaderTemplate" Value="{StaticResource HeaderTemplate}" />
+    <Setter Property="Control.Template" Value="{StaticResource FlyoutTemplate}" />
+    <Setter Property="FrameworkElement.FocusVisualStyle" Value="{x:Null}" />
+    <Setter Property="Control.Foreground" Value="{DynamicResource FlyoutForegroundBrush}" />
+    <Setter Property="Control.Background" Value="{DynamicResource FlyoutBackgroundBrush}" />
+  </Style>
+</ResourceDictionary>

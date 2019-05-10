@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:Controls="clr-namespace:MahApps.Metro.Controls">
+  <ControlTemplate x:Key="SplitButtonHorizontal" TargetType="{x:Type Controls:SplitButton}">
+    <Border Name="PART_Border" UseLayoutRounding="True" SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}" BorderThickness="{TemplateBinding Control.BorderThickness}" BorderBrush="{TemplateBinding Control.BorderBrush}">
+      <Grid Name="PART_Container" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <Button Name="PART_Button" Grid.Column="0" Style="{TemplateBinding Controls:SplitButton.ButtonStyle}" FocusVisualStyle="{TemplateBinding FrameworkElement.FocusVisualStyle}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}" Background="{TemplateBinding Control.Background}" Foreground="{TemplateBinding Control.Foreground}" BorderBrush="{TemplateBinding Control.BorderBrush}" Command="{TemplateBinding Controls:SplitButton.Command}" CommandParameter="{TemplateBinding Controls:SplitButton.CommandParameter}" CommandTarget="{TemplateBinding Controls:SplitButton.CommandTarget}">
+          <StackPanel Orientation="Horizontal" HorizontalAlignment="{TemplateBinding Control.HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding Control.VerticalContentAlignment}">
+            <ContentPresenter UseLayoutRounding="False" RecognizesAccessKey="True" Focusable="False" HorizontalAlignment="Center" VerticalAlignment="Center" Content="{TemplateBinding Controls:SplitButton.Icon}" ContentTemplate="{TemplateBinding Controls:SplitButton.IconTemplate}" />
+            <Controls:ContentControlEx x:Name="PART_ButtonContent" Margin="2" UseLayoutRounding="False" HorizontalAlignment="Center" VerticalAlignment="Center" ContentStringFormat="{TemplateBinding ItemsControl.ItemStringFormat}" ContentTemplate="{TemplateBinding ItemsControl.ItemTemplate}" ContentTemplateSelector="{TemplateBinding ItemsControl.ItemTemplateSelector}" SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}" HorizontalContentAlignment="{TemplateBinding Control.HorizontalContentAlignment}" Padding="{TemplateBinding Control.Padding}" VerticalContentAlignment="{TemplateBinding Control.VerticalContentAlignment}" RecognizesAccessKey="True" Content="{Binding SelectedItem, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" ContentCharacterCasing="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(Controls:ControlsHelper.ContentCharacterCasing)}" />
+          </StackPanel>
+        </Button>
+        <Button Name="PART_Expander" Grid.Column="1" Style="{TemplateBinding Controls:SplitButton.ButtonArrowStyle}" FocusVisualStyle="{TemplateBinding FrameworkElement.FocusVisualStyle}" SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}" Background="{TemplateBinding Control.Background}" Foreground="{TemplateBinding Control.Foreground}" BorderBrush="{TemplateBinding Control.BorderBrush}" Width="20">
+          <Rectangle Name="PART_Rectangle" UseLayoutRounding="False" Height="6" Width="10" HorizontalAlignment="Center" VerticalAlignment="Center" Fill="{TemplateBinding Controls:SplitButton.ArrowBrush}">
+            <Rectangle.OpacityMask>
+              <VisualBrush Stretch="Fill">
+                <VisualBrush.Visual>
+                  <Canvas Width="18" Height="18" Clip="F1M0,0L48,0 48,48 0,48 0,0" UseLayoutRounding="False">
+                    <Path Width="18" Height="16" Canvas.Left="14.9063" Canvas.Top="15.75" Stretch="Fill" Fill="{DynamicResource BlackColorBrush}" Data="F1M23.9063,25L25.9063,23 32.9063,15.75 32.9063,22.25 23.9062,31.75 14.9063,22.25 14.9063,15.75 21.9063,23 23.9063,25z" />
+                  </Canvas>
+                </VisualBrush.Visual>
+              </VisualBrush>
+            </Rectangle.OpacityMask>
+          </Rectangle>
+        </Button>
+        <Popup Name="PART_Popup" PopupAnimation="Fade" MinWidth="{TemplateBinding FrameworkElement.ActualWidth}" StaysOpen="True" IsOpen="{Binding IsExpanded, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" PlacementTarget="{Binding ElementName=PART_Button}">
+          <ListBox Name="PART_ListBox" BorderBrush="{TemplateBinding Control.BorderBrush}" BorderThickness="{TemplateBinding Control.BorderThickness}" Style="{TemplateBinding Controls:SplitButton.ListBoxStyle}" SelectionMode="Single" DisplayMemberPath="{TemplateBinding ItemsControl.DisplayMemberPath}" ItemTemplate="{TemplateBinding ItemsControl.ItemTemplate}" ItemTemplateSelector="{TemplateBinding ItemsControl.ItemTemplateSelector}" ItemStringFormat="{TemplateBinding ItemsControl.ItemStringFormat}" ItemContainerStyle="{TemplateBinding ItemsControl.ItemContainerStyle}" ItemContainerStyleSelector="{TemplateBinding ItemsControl.ItemContainerStyleSelector}" ItemsSource="{TemplateBinding ItemsControl.ItemsSource}" SelectedItem="{Binding SelectedItem, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" SelectedIndex="{Binding SelectedIndex, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" />
+        </Popup>
+      </Grid>
+    </Border>
+  </ControlTemplate>
+  <ControlTemplate x:Key="SplitButtonVertical" TargetType="{x:Type Controls:SplitButton}">
+    <Border Name="PART_Border" UseLayoutRounding="True" SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}" BorderThickness="{TemplateBinding Control.BorderThickness}" BorderBrush="{TemplateBinding Control.BorderBrush}">
+      <Grid Name="PART_Container" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Grid.RowDefinitions>
+          <RowDefinition Height="*" />
+          <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Button Name="PART_Button" Grid.Row="0" Style="{TemplateBinding Controls:SplitButton.ButtonStyle}" FocusVisualStyle="{TemplateBinding FrameworkElement.FocusVisualStyle}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}" Background="{TemplateBinding Control.Background}" Foreground="{TemplateBinding Control.Foreground}" BorderBrush="{TemplateBinding Control.BorderBrush}" Command="{TemplateBinding Controls:SplitButton.Command}" CommandParameter="{TemplateBinding Controls:SplitButton.CommandParameter}" CommandTarget="{TemplateBinding Controls:SplitButton.CommandTarget}">
+          <StackPanel Orientation="Vertical" HorizontalAlignment="{TemplateBinding Control.HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding Control.VerticalContentAlignment}">
+            <ContentPresenter UseLayoutRounding="False" RecognizesAccessKey="True" Focusable="False" HorizontalAlignment="Center" VerticalAlignment="Center" Content="{TemplateBinding Controls:SplitButton.Icon}" ContentTemplate="{TemplateBinding Controls:SplitButton.IconTemplate}" />
+            <Controls:ContentControlEx x:Name="PART_ButtonContent" Margin="2" UseLayoutRounding="False" HorizontalAlignment="Center" VerticalAlignment="Center" ContentStringFormat="{TemplateBinding ItemsControl.ItemStringFormat}" ContentTemplate="{TemplateBinding ItemsControl.ItemTemplate}" ContentTemplateSelector="{TemplateBinding ItemsControl.ItemTemplateSelector}" SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}" HorizontalContentAlignment="{TemplateBinding Control.HorizontalContentAlignment}" Padding="{TemplateBinding Control.Padding}" VerticalContentAlignment="{TemplateBinding Control.VerticalContentAlignment}" RecognizesAccessKey="True" Content="{Binding SelectedItem, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" ContentCharacterCasing="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(Controls:ControlsHelper.ContentCharacterCasing)}" />
+          </StackPanel>
+        </Button>
+        <Button Name="PART_Expander" Grid.Row="1" Style="{TemplateBinding Controls:SplitButton.ButtonArrowStyle}" FocusVisualStyle="{TemplateBinding FrameworkElement.FocusVisualStyle}" SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}" Background="{TemplateBinding Control.Background}" Foreground="{TemplateBinding Control.Foreground}" BorderBrush="{TemplateBinding Control.BorderBrush}" Height="20">
+          <Rectangle Name="PART_Rectangle" UseLayoutRounding="False" Height="6" Width="10" HorizontalAlignment="Center" VerticalAlignment="Center" Fill="{TemplateBinding Controls:SplitButton.ArrowBrush}">
+            <Rectangle.OpacityMask>
+              <VisualBrush Stretch="Fill">
+                <VisualBrush.Visual>
+                  <Canvas Width="18" Height="18" Clip="F1M0,0L48,0 48,48 0,48 0,0" UseLayoutRounding="False">
+                    <Path Width="18" Height="16" Canvas.Left="14.9063" Canvas.Top="15.75" Stretch="Fill" Fill="{DynamicResource BlackColorBrush}" Data="F1M23.9063,25L25.9063,23 32.9063,15.75 32.9063,22.25 23.9062,31.75 14.9063,22.25 14.9063,15.75 21.9063,23 23.9063,25z" />
+                  </Canvas>
+                </VisualBrush.Visual>
+              </VisualBrush>
+            </Rectangle.OpacityMask>
+          </Rectangle>
+        </Button>
+        <Popup Name="PART_Popup" PopupAnimation="Fade" MinWidth="{TemplateBinding FrameworkElement.ActualWidth}" StaysOpen="True" IsOpen="{Binding IsExpanded, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" PlacementTarget="{Binding ElementName=PART_Expander}">
+          <ListBox Name="PART_ListBox" BorderBrush="{TemplateBinding Control.BorderBrush}" BorderThickness="{TemplateBinding Control.BorderThickness}" Style="{TemplateBinding Controls:SplitButton.ListBoxStyle}" SelectionMode="Single" DisplayMemberPath="{TemplateBinding ItemsControl.DisplayMemberPath}" ItemTemplate="{TemplateBinding ItemsControl.ItemTemplate}" ItemTemplateSelector="{TemplateBinding ItemsControl.ItemTemplateSelector}" ItemStringFormat="{TemplateBinding ItemsControl.ItemStringFormat}" ItemContainerStyle="{TemplateBinding ItemsControl.ItemContainerStyle}" ItemContainerStyleSelector="{TemplateBinding ItemsControl.ItemContainerStyleSelector}" ItemsSource="{TemplateBinding ItemsControl.ItemsSource}" SelectedItem="{Binding SelectedItem, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" SelectedIndex="{Binding SelectedIndex, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" />
+        </Popup>
+      </Grid>
+    </Border>
+  </ControlTemplate>
+  <Style x:Key="ButtonSplitFocusVisual">
+    <Setter Property="Control.Template">
+      <Setter.Value>
+        <ControlTemplate>
+          <Rectangle Margin="1" SnapsToDevicePixels="True" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2" />
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+  <Style x:Key="{x:Type Controls:SplitButton}" TargetType="{x:Type Controls:SplitButton}">
+    <Setter Property="Controls:SplitButton.ButtonStyle" Value="{DynamicResource ButtonSplitStyle}" />
+    <Setter Property="Controls:SplitButton.ButtonArrowStyle" Value="{DynamicResource ButtonSplitArrowStyle}" />
+    <Setter Property="Controls:SplitButton.ListBoxStyle" Value="{DynamicResource VirtualisedMetroListBox}" />
+    <Setter Property="Control.Background" Value="{DynamicResource WhiteColorBrush}" />
+    <Setter Property="Control.Foreground" Value="{DynamicResource BlackColorBrush}" />
+    <Setter Property="Controls:SplitButton.ArrowBrush" Value="{DynamicResource BlackColorBrush}" />
+    <Setter Property="FrameworkElement.MinHeight" Value="26" />
+    <Setter Property="Control.BorderThickness" Value="1" />
+    <Setter Property="Control.BorderBrush" Value="{DynamicResource BlackColorBrush}" />
+    <Setter Property="Control.FontFamily" Value="{DynamicResource ContentFontFamily}" />
+    <Setter Property="Control.FontSize" Value="{DynamicResource ContentFontSize}" />
+    <Setter Property="UIElement.SnapsToDevicePixels" Value="True" />
+    <Setter Property="UIElement.Focusable" Value="False" />
+    <Setter Property="FrameworkElement.FocusVisualStyle" Value="{StaticResource ButtonSplitFocusVisual}" />
+    <Setter Property="Control.HorizontalContentAlignment" Value="Center" />
+    <Setter Property="Control.VerticalContentAlignment" Value="Center" />
+    <Setter Property="Control.Template" Value="{StaticResource SplitButtonHorizontal}" />
+    <Style.Triggers>
+      <Trigger Property="Controls:SplitButton.Orientation" Value="Vertical">
+        <Setter Property="Control.Template" Value="{StaticResource SplitButtonVertical}" />
+      </Trigger>
+      <Trigger Property="UIElement.IsMouseOver" Value="True">
+        <Setter Property="Controls:SplitButton.ArrowBrush" Value="{DynamicResource AccentColorBrush}" />
+      </Trigger>
+      <Trigger Property="UIElement.IsFocused" Value="True">
+        <Setter Property="Control.BorderBrush" Value="{DynamicResource AccentColorBrush}" />
+      </Trigger>
+      <Trigger Property="UIElement.IsKeyboardFocusWithin" Value="True">
+        <Setter Property="Control.BorderBrush" Value="{DynamicResource AccentColorBrush}" />
+      </Trigger>
+      <Trigger Property="UIElement.IsEnabled" Value="False">
+        <Setter Property="UIElement.Opacity" Value=".55" />
+      </Trigger>
+    </Style.Triggers>
+  </Style>
+</ResourceDictionary>

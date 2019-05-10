@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dialogs:BaseMetroDialog x:Class="MahApps.Metro.Controls.Dialogs.InputDialog" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:Dialogs="clr-namespace:MahApps.Metro.Controls.Dialogs" xmlns:controls="clr-namespace:MahApps.Metro.Controls">
+  <Grid Margin="0 10 0 0">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto" MinHeight="20" />
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="Auto" />
+    </Grid.RowDefinitions>
+    <TextBlock Grid.Row="0" Margin="0 5 0 0" TextBlock.FontSize="{DynamicResource DialogMessageFontSize}" TextWrapping="Wrap" Text="{Binding Message, RelativeSource={RelativeSource AncestorType=Dialogs:InputDialog, Mode=FindAncestor}, UpdateSourceTrigger=PropertyChanged}" TextBlock.Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Dialogs:InputDialog, Mode=FindAncestor}, UpdateSourceTrigger=PropertyChanged}" />
+    <TextBox Name="PART_TextBox" Grid.Row="1" Margin="0 5 0 0" FontSize="{DynamicResource DialogMessageFontSize}" p6:TextBoxHelper.SelectAllOnFocus="True" TextWrapping="Wrap" Text="{Binding Input, RelativeSource={RelativeSource AncestorType=Dialogs:InputDialog, Mode=FindAncestor}, UpdateSourceTrigger=PropertyChanged}" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Dialogs:InputDialog, Mode=FindAncestor}, UpdateSourceTrigger=PropertyChanged}" controls:ControlsHelper.FocusBorderBrush="{DynamicResource AccentColorBrush}" xmlns:p6="clr-namespace:MahApps.Metro.Controls;assembly=小喵谷登入器,Version=1.1.2.0,Culture=neutral,PublicKeyToken=null" />
+    <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Height="85">
+      <Button Name="PART_AffirmativeButton" Height="35" MinWidth="80" Style="{DynamicResource AccentedDialogSquareButton}" Margin="0 0 5 0" Content="{Binding AffirmativeButtonText, RelativeSource={RelativeSource AncestorType=Dialogs:InputDialog, Mode=FindAncestor}, UpdateSourceTrigger=PropertyChanged}" />
+      <Button Name="PART_NegativeButton" Height="35" MinWidth="80" Margin="5 0 5 0" Content="{Binding NegativeButtonText, RelativeSource={RelativeSource AncestorType=Dialogs:InputDialog, Mode=FindAncestor}, UpdateSourceTrigger=PropertyChanged}" />
+    </StackPanel>
+  </Grid>
+</Dialogs:BaseMetroDialog>
